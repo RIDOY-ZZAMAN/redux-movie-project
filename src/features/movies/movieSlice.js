@@ -2,9 +2,9 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import movieApi from '../../common/apis/movieApi';
 import { APIKey } from '../../common/apis/MovieApiKey';
 
-export const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies', async () => {
-    const movieText = "Harry"
-    const response = await movieApi.get(`?apikey=${APIKey}&s=${movieText}&type=movie`)
+export const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies', async (term) => {
+
+    const response = await movieApi.get(`?apikey=${APIKey}&s=${term}&type=movie`)
         .catch((err) => {
             console.log("Error is", err);
 
@@ -13,9 +13,9 @@ export const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies', asyn
     return response.data
 })
 
-export const fetchAsyncShows = createAsyncThunk('movies/fetchAsyncShows', async () => {
-    const seriesText = "Friends"
-    const response = await movieApi.get(`?apikey=${APIKey}&s=${seriesText}&type=series`)
+export const fetchAsyncShows = createAsyncThunk('movies/fetchAsyncShows', async (term) => {
+
+    const response = await movieApi.get(`?apikey=${APIKey}&s=${term}&type=series`)
         .catch((err) => {
             console.log("Error is", err);
 
