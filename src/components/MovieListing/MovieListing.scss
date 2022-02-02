@@ -1,6 +1,10 @@
 @import "../../common/color.scss";
 
-
+.home-spinner{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 40px 0px;
+}
 .movie-list, .show-list {
     margin: 20px 0px;
     h2{

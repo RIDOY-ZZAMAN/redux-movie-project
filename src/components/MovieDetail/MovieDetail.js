@@ -3,7 +3,8 @@ import { Link, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchAsyncMovieOrShowDetail, getSelectedMovieOrShow, removeSelectedMovieOrShow } from '../../features/movies/movieSlice';
 import { useSelector } from 'react-redux';
-import './MovieDetail.scss'
+import './MovieDetail.scss';
+import { Oval } from 'react-loader-spinner';
 
 const MovieDetail = () => {
     const { imdbID } = useParams();
@@ -24,7 +25,13 @@ const MovieDetail = () => {
             <Link to={"/"}><i class="fas fa-arrow-circle-left fa-3x"></i></Link>
             <div className="movie-section">
                 {Object.keys(data).length === 0 ?
-                    (<div>Loading...</div>)
+                    (<div><Oval
+                        heigth="100"
+                        width="100"
+                        color='grey'
+                        ariaLabel='loading'
+
+                    /></div>)
                     :
                     (<>
 

@@ -4,6 +4,8 @@ import { getAllMovies, getAllShows, getLoading } from '../../features/movies/mov
 import MovieCard from '../MovieCard/MovieCard';
 import './MovieListing.scss';
 import Slider from "react-slick";
+import { Oval } from 'react-loader-spinner';
+
 
 import { Settings } from '../../common/settings';
 const MovieListing = () => {
@@ -46,7 +48,18 @@ const MovieListing = () => {
     return (
         <>
             {
-                loading ? <h4 style={{ textAlign: "center" }}>Loading...</h4>
+                loading ? <div className='home-spinner'>
+                    <Oval
+                        heigth="100"
+                        width="100"
+                        color='grey'
+                        ariaLabel='loading'
+
+
+                    />
+
+
+                </div>
                     :
                     (<div className="movie-wrapper">
                         <div className="movie-list">

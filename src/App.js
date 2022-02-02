@@ -12,12 +12,12 @@ import PageNotFound from './components/PageNotFound/PageNotFound';
 import Footer from './components/Footer/Footer';
 
 
+
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Header></Header>
-
         <div className="container">
           <Routes>
             <Route exact path="/" element={<Home />} />

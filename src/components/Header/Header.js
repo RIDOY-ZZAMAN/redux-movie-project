@@ -3,7 +3,8 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchAsyncMovies, fetchAsyncShows } from '../../features/movies/movieSlice';
 import user from '../../images/user.png';
-import './Header.scss'
+import './Header.scss';
+import Swal from 'sweetalert2'
 
 const Header = () => {
 
@@ -14,11 +15,21 @@ const Header = () => {
     const submitHandler = (e) => {
         e.preventDefault();
         if (term === "") {
-            return alert("Please Insert a Movie or Shows Name")
+            return Swal.fire({
+                title: 'Error!',
+                text: "Please Insert a Movie or Show Name",
+                icon: 'error',
+                confirmButtonText: 'OK'
+            })
         }
 
-        if (term.toLowerCase().includes("sex") || term.toLowerCase().includes("erotic") || term.toLowerCase().includes("porn") || term.toLowerCase().includes("nude") || term.toLowerCase().includes("18+") || term.toLowerCase().includes("adult")) {
-            return alert("Please don't search for the 18+ Movies or Show")
+        if (term.toLowerCase().includes("sex") || term.toLowerCase().includes("sexy") || term.toLowerCase().includes("sex movie") || term.toLowerCase().includes("erotic") || term.toLowerCase().includes("porn") || term.toLowerCase().includes("nude") || term.toLowerCase().includes("18+") || term.toLowerCase().includes("adult")) {
+            return Swal.fire({
+                title: 'Forbidden!',
+                text: "Please Don't Search for 18+ Movies or Shows",
+                icon: 'error',
+                confirmButtonText: 'OK'
+            })
         }
         dispatch(fetchAsyncMovies(term));
         dispatch(fetchAsyncShows(term));
@@ -30,7 +41,7 @@ const Header = () => {
         <div className='header'>
 
             <div className='logo'>
-                <Link to="/">Movie App</Link>
+                <Link to="/">Movie Wiki</Link>
             </div>
 
             <div className="search-bar">
