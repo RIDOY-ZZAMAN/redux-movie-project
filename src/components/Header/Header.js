@@ -16,6 +16,10 @@ const Header = () => {
         if (term === "") {
             return alert("Please Insert a Movie or Shows Name")
         }
+
+        if (term.toLowerCase().includes("sex") || term.toLowerCase().includes("erotic") || term.toLowerCase().includes("porn") || term.toLowerCase().includes("nude") || term.toLowerCase().includes("18+") || term.toLowerCase().includes("adult")) {
+            return alert("Please don't search for the 18+ Movies or Show")
+        }
         dispatch(fetchAsyncMovies(term));
         dispatch(fetchAsyncShows(term));
         setTerm("");
