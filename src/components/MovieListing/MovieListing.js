@@ -46,7 +46,7 @@ const MovieListing = () => {
     return (
         <>
             {
-                loading ? <h4 >Loading...</h4>
+                loading ? <h4 style={{ textAlign: "center" }}>Loading...</h4>
                     :
                     (<div className="movie-wrapper">
                         <div className="movie-list">
